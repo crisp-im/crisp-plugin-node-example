@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Setup your plugin</title>
+
+    <script>
+        function sendConfig() {
+            var _urlParams = new URLSearchParams(window.location.search),
+                _message = document.getElementById("message").value;
+
+            fetch(window.location.origin + "/config/update", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    "website_id": _urlParams.get("website_id"),
+                    "token": _urlParams.get("token"),
+                    "message": _message
+                })
+            }).then(() => {
+                console.log("worked");
+            }).catch(reason => {
+                console.error(reason);
+            });
+        }
+    </script>
+</head>
+
+<body>
+<p>Message:
+    <input type="text" name="message" id="message">
+    <button onclick="sendConfig()">Save configuration</button>
+</p>
+
+</body>
+</html>

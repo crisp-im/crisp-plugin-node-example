@@ -11,6 +11,6 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "node-crisp-api": "^1.12.0"
+    "node-crisp-api": "^4.0.0"
   }
 }
